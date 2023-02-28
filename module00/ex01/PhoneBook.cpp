@@ -6,7 +6,7 @@
 /*   By: jungeun <jungeun@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 15:56:04 by jungeun           #+#    #+#             */
-/*   Updated: 2023/02/26 22:27:19 by jungeun          ###   ########.fr       */
+/*   Updated: 2023/02/28 23:41:18 by jungeun          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ PhoneBook::~PhoneBook(void)
 	std::cout << "PHONEBOOK DESTROYED" << std::endl;
 }
 
-void	PhoneBook::add(void) {
-	
+void	PhoneBook::add(void)
+{
 	std::string	input;
 
 	std::cout << "Enter first name: ";
@@ -109,11 +109,11 @@ void	PhoneBook::search(void)
 			break;
 	}
 	
-	std::cout << "FirstName: " << contact[index - 1].getFirstName() << std::endl
-		<< "LastName: " << contact[index - 1].getLastName() << std::endl
-		<< "Nickname: " << contact[index - 1].getNickname() << std::endl
-		<< "PhoneNumber: " << contact[index - 1].getPhoneNumber() << std::endl
-		<< "DarkestSecret: " << contact[index - 1].getDarkestSecret() << std::endl;
+	std::cout << "FirstName: " << contact[std::stoi(input) - 1].getFirstName() << std::endl
+		<< "LastName: " << contact[std::stoi(input) - 1].getLastName() << std::endl
+		<< "Nickname: " << contact[std::stoi(input) - 1].getNickname() << std::endl
+		<< "PhoneNumber: " << contact[std::stoi(input) - 1].getPhoneNumber() << std::endl
+		<< "DarkestSecret: " << contact[std::stoi(input) - 1].getDarkestSecret() << std::endl;
 }
 
 std::string	PhoneBook::checkColumn(std::string column)

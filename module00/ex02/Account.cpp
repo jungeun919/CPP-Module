@@ -6,7 +6,7 @@
 /*   By: jungeun <jungeun@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/07 16:25:43 by jungeun           #+#    #+#             */
-/*   Updated: 2023/02/26 22:34:15 by jungeun          ###   ########.fr       */
+/*   Updated: 2023/02/28 23:59:58 by jungeun          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,8 +107,10 @@ void	Account::makeDeposit(int deposit)
 		<< ";p_amount:" << this->_amount
 		<< ";deposit:" << deposit
 		<< ";amount:" << temp
-		<< ";nb_deposits" << this->_nbDeposits
+		<< ";nb_deposits:" << this->_nbDeposits
 		<< std::endl;
+
+	this->_amount = temp;
 }
 
 bool	Account::makeWithdrawal(int withdrawal)
@@ -122,7 +124,7 @@ bool	Account::makeWithdrawal(int withdrawal)
 	if (temp < 0)
 	{
 		std::cout << " index:" << this->_accountIndex
-			<< ":p_amount:" << this->_amount
+			<< ";p_amount:" << this->_amount
 			<< ";withdrawal:refused" << std::endl;
 		
 		return false;
@@ -134,10 +136,13 @@ bool	Account::makeWithdrawal(int withdrawal)
 		this->_totalAmount -= withdrawal;
 		
 		std::cout << " index:" << this->_accountIndex
-			<< ";amount:" << this->_amount
-			<< ";deposits" << 1
-			<< ";withdrawals" << this->_nbWithdrawals
+			<< ";p_amount:" << this->_amount
+			<< ";withdrawal:" << withdrawal
+			<< ";amount:" << temp
+			<< ";nb_withdrawals:" << this->_nbWithdrawals
 			<< std::endl;
+		
+		this->_amount = temp;
 		
 		return true;
 	}
@@ -145,15 +150,7 @@ bool	Account::makeWithdrawal(int withdrawal)
 
 int	Account::checkAmount(void) const
 {	
-	Account::_displayTimestamp();
-	
-	std::cout << " index:" << this->_accountIndex
-		<< ";amount:" << this->_amount
-		<< ";deposits:" << this->_nbDeposits
-		<< ";withdrawals:" << this->_nbWithdrawals
-		<< std::endl;
-
-	return 1;
+	return _amount;
 }
 
 void	Account::displayStatus(void) const

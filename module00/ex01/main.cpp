@@ -6,7 +6,7 @@
 /*   By: jungeun <jungeun@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 19:37:23 by jungeun           #+#    #+#             */
-/*   Updated: 2023/02/26 22:24:53 by jungeun          ###   ########.fr       */
+/*   Updated: 2023/02/28 23:42:10 by jungeun          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int main()
 		else if (input.compare("EXIT") == 0 || std::cin.eof() == true)
 			break;
 		else
-			std::cout << "Command not found" << std::endl;
+			std::cout << "Invalid command" << std::endl;
 	}
 	return 0;
 }
