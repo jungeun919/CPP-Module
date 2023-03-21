@@ -6,7 +6,7 @@
 /*   By: jungeun <jungeun@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/07 16:25:43 by jungeun           #+#    #+#             */
-/*   Updated: 2023/02/28 23:59:58 by jungeun          ###   ########.fr       */
+/*   Updated: 2023/03/21 23:58:02 by jungeun          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 # include <iostream>
 # include <ctime>
 
-int	Account::_nbAccounts;
-int	Account::_totalAmount;
-int	Account::_totalNbDeposits;
-int	Account::_totalNbWithdrawals;
+int	Account::_nbAccounts = 0;
+int	Account::_totalAmount = 0;
+int	Account::_totalNbDeposits = 0;
+int	Account::_totalNbWithdrawals = 0;
 
 Account::Account(int initial_deposit)
 {

@@ -6,13 +6,13 @@
 #    By: jungeun <jungeun@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/26 22:25:58 by jungeun           #+#    #+#              #
-#    Updated: 2023/02/26 22:25:59 by jungeun          ###   ########.fr        #
+#    Updated: 2023/03/22 00:33:31 by jungeun          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = account
 
-CXX = clang++
+CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
 SRCS = Account.cpp tests.cpp

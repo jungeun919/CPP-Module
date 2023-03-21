@@ -6,7 +6,7 @@
 /*   By: jungeun <jungeun@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 15:56:04 by jungeun           #+#    #+#             */
-/*   Updated: 2023/02/28 23:41:18 by jungeun          ###   ########.fr       */
+/*   Updated: 2023/03/22 00:41:10 by jungeun          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,23 +29,23 @@ void	PhoneBook::add(void)
 
 	std::cout << "Enter first name: ";
 	input = getContactInfo();
-	contact[index].setFirstName(input);
+	contact[index % 8].setFirstName(input);
 
 	std::cout << "Enter last name: ";
 	input = getContactInfo();
-	contact[index].setLastName(input);
+	contact[index % 8].setLastName(input);
 
 	std::cout << "Enter nickname: ";
 	input = getContactInfo();
-	contact[index].setNickname(input);
+	contact[index % 8].setNickname(input);
 
 	std::cout << "Enter phone number: ";
 	input = getContactInfo();
-	contact[index].setPhoneNumber(input);
+	contact[index % 8].setPhoneNumber(input);
 
 	std::cout << "Enter darkest secret: ";
 	input = getContactInfo();
-	contact[index].setDarkestSecret(input);
+	contact[index % 8].setDarkestSecret(input);
 
 	index += 1;
 }
@@ -71,7 +71,7 @@ std::string	PhoneBook::getContactInfo(void)
 void	PhoneBook::search(void)
 {	
 	std::string	input;
-	
+		
 	if (index == 0)
 	{
 		std::cout << "Empty contact" << std::endl;
@@ -84,7 +84,7 @@ void	PhoneBook::search(void)
 		<< "|" << std::setw(10) << "Nickname"
 		<< "|" << std::endl;
 
-	for (int i = 0; i < index; i++)
+	for (int i = 0; i < (index > 8 ? 8 : index); i++)
 	{
 		std::cout << "|" << std::setw(10) << i + 1
 			<< "|" << std::setw(10) << checkColumn(contact[i].getFirstName())
@@ -98,22 +98,30 @@ void	PhoneBook::search(void)
 		std::cout << "Enter the index: ";
 		std::getline(std::cin, input);
 
+		std::stringstream	ss(input);
+		ss << input;
+		int	num;
+		ss >> num;
+		
 		if (std::cin.eof() == true)
 			exit(0);
-		if (input.size() == 0 || input < "1" || input > "8" || std::stoi(input) > index)
+		if (input.size() == 0 || num < 1 || num > 8 || num > index)
 		{
 			std::cin.clear();
 			std::cout << "Invalid index" << std::endl;
 		}
-		else
+		else if (input.size() == 1 && num >= 1 && num <= 8)
+		{
+			std::cout << "FirstName: " << contact[num - 1].getFirstName() << std::endl
+				<< "LastName: " << contact[num - 1].getLastName() << std::endl
+				<< "Nickname: " << contact[num - 1].getNickname() << std::endl
+				<< "PhoneNumber: " << contact[num - 1].getPhoneNumber() << std::endl
+				<< "DarkestSecret: " << contact[num - 1].getDarkestSecret() << std::endl;
 			break;
+		}
+		else
+			std::cout << "Invalid index" << std::endl;
 	}
-	
-	std::cout << "FirstName: " << contact[std::stoi(input) - 1].getFirstName() << std::endl
-		<< "LastName: " << contact[std::stoi(input) - 1].getLastName() << std::endl
-		<< "Nickname: " << contact[std::stoi(input) - 1].getNickname() << std::endl
-		<< "PhoneNumber: " << contact[std::stoi(input) - 1].getPhoneNumber() << std::endl
-		<< "DarkestSecret: " << contact[std::stoi(input) - 1].getDarkestSecret() << std::endl;
 }
 
 std::string	PhoneBook::checkColumn(std::string column)

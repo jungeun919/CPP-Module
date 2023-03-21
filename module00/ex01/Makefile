@@ -6,13 +6,13 @@
 #    By: jungeun <jungeun@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/26 22:26:05 by jungeun           #+#    #+#              #
-#    Updated: 2023/02/26 22:26:06 by jungeun          ###   ########.fr        #
+#    Updated: 2023/03/22 00:33:28 by jungeun          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = phonebook
 
-CXX = clang++
+CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
 SRCS = main.cpp Contact.cpp PhoneBook.cpp
