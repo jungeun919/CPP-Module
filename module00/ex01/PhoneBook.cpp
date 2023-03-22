@@ -99,7 +99,6 @@ void	PhoneBook::search(void)
 		std::getline(std::cin, input);
 
 		std::stringstream	ss(input);
-		ss << input;
 		int	num;
 		ss >> num;
 		
