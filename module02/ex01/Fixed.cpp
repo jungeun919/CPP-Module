@@ -6,7 +6,7 @@
 /*   By: jungeun <jungeun@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 18:11:33 by jungeun           #+#    #+#             */
-/*   Updated: 2023/03/23 18:11:35 by jungeun          ###   ########.fr       */
+/*   Updated: 2023/04/05 22:23:52 by jungeun          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,13 +51,11 @@ Fixed&	Fixed::operator=(const Fixed& object)
 
 int	Fixed::getRawBits(void) const
 {
-	std::cout << "getRawBits member function called" << std::endl;
 	return this->value;
 }
 
 void	Fixed::setRawBits(int const raw)
 {
-	std::cout << "setRawBits member function called" << std::endl;
 	this->value = raw;
 }
 
