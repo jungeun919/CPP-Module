@@ -6,7 +6,7 @@
 /*   By: jungeun <jungeun@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/24 16:21:42 by jungeun           #+#    #+#             */
-/*   Updated: 2023/03/24 18:27:41 by jungeun          ###   ########.fr       */
+/*   Updated: 2023/04/12 12:39:47 by jungeun          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ class FragTrap : virtual public ClapTrap
 
 		FragTrap&	operator=(const FragTrap& object);
 
-		void	attack(const std::string& target);
 		void	highFivesGuys(void);
 };
 

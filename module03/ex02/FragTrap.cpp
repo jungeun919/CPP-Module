@@ -6,7 +6,7 @@
 /*   By: jungeun <jungeun@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/24 16:28:34 by jungeun           #+#    #+#             */
-/*   Updated: 2023/03/24 16:36:23 by jungeun          ###   ########.fr       */
+/*   Updated: 2023/04/12 12:39:23 by jungeun          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,22 +50,6 @@ FragTrap&	FragTrap::operator=(const FragTrap& object)
 	}
 	std::cout << "FragTrap " << this->name << " copy assignment operator called" << std::endl;
 	return *this;
-}
-
-void	FragTrap::attack(const std::string& target)
-{
-	if (!this->hitPoints)
-	{
-		std::cout << "FragTrap " << this->name << "is died" << std::endl;
-		return;
-	}
-	if (!this->energyPoints)
-	{
-		std::cout << "FragTrap " << this->name << " has no energyPoints" << std::endl;
-		return;
-	}
-	this->energyPoints--;
-	std::cout << "FragTrap " << this->name << " attakcs " << target << ", causing " << this->attackDamage << " points of damage!" << std::endl;
 }
 
 void	FragTrap::highFivesGuys(void)
