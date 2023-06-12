@@ -1,42 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Serialization.cpp                                  :+:      :+:    :+:   */
+/*   Serializer.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jungeun <jungeun@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/09 12:16:33 by jungeun           #+#    #+#             */
-/*   Updated: 2023/06/09 12:20:16 by jungeun          ###   ########.fr       */
+/*   Updated: 2023/06/12 15:12:13 by jungeun          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Serialization.hpp"
+#include "Serializer.hpp"
 
-Serialization::Serialization(void)
+Serializer::Serializer(void)
 {
 }
 
-Serialization::Serialization(const Serialization& object)
+Serializer::Serializer(const Serializer& object)
 {
 	*this = object;
 }
 
-Serialization::~Serialization(void)
+Serializer::~Serializer(void)
 {
 }
 
-Serialization&	Serialization::operator=(const Serialization& object)
+Serializer&	Serializer::operator=(const Serializer& object)
 {
 	(void)object;
 	return *this;
 }
 
-uintptr_t	Serialization::serialize(Data* ptr)
+uintptr_t	Serializer::serialize(Data* ptr)
 {
 	return reinterpret_cast<uintptr_t>(ptr);
 }
 
-Data*	Serialization::deserialize(uintptr_t raw)
+Data*	Serializer::deserialize(uintptr_t raw)
 {
 	return reinterpret_cast<Data*>(raw);
 }

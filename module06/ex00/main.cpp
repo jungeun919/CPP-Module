@@ -6,11 +6,11 @@
 /*   By: jungeun <jungeun@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/03 03:49:29 by jungeun           #+#    #+#             */
-/*   Updated: 2023/06/09 08:32:41 by jungeun          ###   ########.fr       */
+/*   Updated: 2023/06/12 15:08:41 by jungeun          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Converter.hpp"
+#include "ScalarConverter.hpp"
 
 int	main(int argc, char **argv)
 {
@@ -19,21 +19,24 @@ int	main(int argc, char **argv)
 		std::cout << "Invalid argument" << std::endl;
 		return 1;
 	}
-	Converter::convert(argv[1]);
-
-	std::cout << std::endl;
-	// std::string	input = argv[1];
-	// std::cout << "char: " << static_cast<char>(input[0]) << std::endl;
-	// // std::cout << "int: " << static_cast<int>(input[0]) << std::endl;
-	// std::cout << "int: " << static_cast<int>(static_cast<double>(input[0])) << std::endl;
-	// std::cout << "float: " << static_cast<float>(input[0]) << std::endl;
-	// std::cout << "double: " << static_cast<double>(input[0]) << std::endl;
-
-	std::string input = argv[1];
-	std::cout << "char: " << (char)input[0] << std::endl;
-	std::cout << "int: " << (int)input[0] << std::endl;
-	std::cout << "float: " << (float)input[0] << std::endl;
-	std::cout << "double: " << (double)input[0] << std::endl;
 	
+	ScalarConverter::convert(argv[1]);
+	
+	std::cout << std::endl;
+	// char value = 'a';
+	int value = 11111111;
+	// float value = nanf;
+	// double value = nan;
+
+    char c = static_cast<char>(value);
+	int n = static_cast<int>(value);
+    float f = static_cast<float>(value);
+    double d = static_cast<double>(value);
+
+    std::cout << "char: " << c << std::endl;
+	std::cout << "int: " << n << std::endl;
+    std::cout << "float: " << f << std::endl;
+    std::cout << "double: " << d << std::endl;
+
 	return 0;
 }

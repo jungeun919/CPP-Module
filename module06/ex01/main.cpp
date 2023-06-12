@@ -6,16 +6,16 @@
 /*   By: jungeun <jungeun@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/09 12:16:28 by jungeun           #+#    #+#             */
-/*   Updated: 2023/06/09 12:23:21 by jungeun          ###   ########.fr       */
+/*   Updated: 2023/06/12 15:11:56 by jungeun          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Serialization.hpp"
+#include "Serializer.hpp"
 
 int	main()
 {
 	Data			data;
-	Serialization	serialization;
+	Serializer		serialization;
 
 	data._name = "jungchoi";
 
