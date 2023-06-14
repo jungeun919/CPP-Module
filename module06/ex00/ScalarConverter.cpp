@@ -6,7 +6,7 @@
 /*   By: jungeun <jungeun@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/03 01:25:35 by jungeun           #+#    #+#             */
-/*   Updated: 2023/06/12 15:08:09 by jungeun          ###   ########.fr       */
+/*   Updated: 2023/06/14 15:18:45 by jungeun          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int	ScalarConverter::checkType(std::string input)
 	char	*ptr = NULL;
 	std::strtod(input.c_str(), &ptr);
 
-	if (input == "nanf" || input == "nan" || input == "+inff" || input == "-inff" || input == "+inf" || input == "-inf")
+	if (input == "nanf" || input == "nan" || input == "+inff" || input == "-inff" || input == "inff" || input == "+inf" || input == "-inf" || input == "inf")
 		return (0);
 	else if (ptr[0] == '\0' || (std::string(ptr) == "f" && input.size() != 1))
 		return (1);
@@ -74,10 +74,10 @@ void	ScalarConverter::convert(std::string input)
 			std::cout << "float: nanf" << std::endl;
 			std::cout << "double: nan" << std::endl;
 		}
-		else if (input == "+inff" || input == "+inf")
+		else if (input == "+inff" || input == "+inf" || input == "inff" || input == "inf")
 		{
-			std::cout << "float: +inff" << std::endl;
-			std::cout << "double: +inf" << std::endl;
+			std::cout << "float: inff" << std::endl;
+			std::cout << "double: inf" << std::endl;
 		}
 		else if (input == "-inff" || input == "-inf")
 		{
@@ -111,13 +111,17 @@ void	ScalarConverter::convert(std::string input)
 			std::cout << "impossible" << std::endl;
 		
 		std::cout << "float: ";
-		if (static_cast<float>(value) == static_cast<int>(static_cast<float>(value)))
+		if (value < std::numeric_limits<float>::lowest() || value > std::numeric_limits<float>::max())
+			std::cout << "impossible" << std::endl;
+		else if (static_cast<float>(value) == static_cast<int>(static_cast<float>(value)))
 			std::cout << static_cast<float>(value) << ".0f" << std::endl;
 		else
 		 	std::cout << std::setprecision(std::numeric_limits<float>::digits10) << static_cast<float>(value) << "f" << std::endl;
 		
-		std::cout <<"double: ";
-		if (value == static_cast<int>(value))
+		std::cout << "double: ";
+		if (value < std::numeric_limits<double>::lowest() || value > std::numeric_limits<double>::max())
+			std::cout << "impossible" << std::endl;
+		else if (value == static_cast<int>(value))
 			std::cout << value << ".0" << std::endl;
 		else
 		 	std::cout << std::setprecision(std::numeric_limits<float>::digits10) << value << std::endl;

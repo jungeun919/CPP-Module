@@ -6,7 +6,7 @@
 /*   By: jungeun <jungeun@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/09 12:16:28 by jungeun           #+#    #+#             */
-/*   Updated: 2023/06/12 15:11:56 by jungeun          ###   ########.fr       */
+/*   Updated: 2023/06/14 14:46:23 by jungeun          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,10 @@
 
 int	main()
 {
-	Data			data;
-	Serializer		serialization;
-
+	Data	data;
 	data._name = "jungchoi";
 
-	uintptr_t	raw = serialization.serialize(&data);
+	uintptr_t	raw = Serializer::serialize(&data);
 
 	std::cout << "[serialize]" << std::endl;
 	std::cout << "data address: " << (uintptr_t)&data << std::endl;
@@ -28,7 +26,7 @@ int	main()
 
 	std::cout << std::endl;
 	
-	Data*	ptr = serialization.deserialize(raw);
+	Data*	ptr = Serializer::deserialize(raw);
 
 	std::cout << "[deserialize]" << std::endl;
 	std::cout << "ptr address: " << ptr << std::endl;
